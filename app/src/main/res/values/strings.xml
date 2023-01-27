@@ -2,4 +2,7 @@
     <string name="app_name">Task manager</string>
     <string name="tab_text_1">Favorites</string>
     <string name="tab_text_2">My tasks</string>
+    <string name="name_task">Name task</string>
+    <string name="description">Description</string>
+    <string name="date">Date</string>
 </resources>

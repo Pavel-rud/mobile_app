@@ -1,5 +1,7 @@
 package com.example.mobileapp
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
@@ -9,8 +11,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import com.example.mobileapp.ui.main.SectionsPagerAdapter
+import com.example.mobileapp.dialogs.DialogCreateTask
+//const val APP_PREFERENCES = "APP_PREFERENCES"
 
 class MainActivity : AppCompatActivity() {
+
+    //private lateinit var preferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,9 +28,11 @@ class MainActivity : AppCompatActivity() {
         tabs.setupWithViewPager(viewPager)
         val fab: FloatingActionButton = findViewById(R.id.fab)
 
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+        fab.setOnClickListener {
+            val myDialogFragment = DialogCreateTask()
+            myDialogFragment.show(supportFragmentManager, "myDialog")
         }
     }
+
+
 }
