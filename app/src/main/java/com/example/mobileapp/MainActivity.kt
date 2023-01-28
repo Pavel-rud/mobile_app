@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import com.example.mobileapp.ui.main.SectionsPagerAdapter
-import com.example.mobileapp.dialogs.DialogCreateTask
+import com.example.mobileapp.dialogs.CreateTaskDialog
 //const val APP_PREFERENCES = "APP_PREFERENCES"
 
 class MainActivity : AppCompatActivity() {
@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         val fab: FloatingActionButton = findViewById(R.id.fab)
 
         fab.setOnClickListener {
-            val myDialogFragment = DialogCreateTask()
+            val myDialogFragment = CreateTaskDialog()
             myDialogFragment.show(supportFragmentManager, "myDialog")
         }
     }
