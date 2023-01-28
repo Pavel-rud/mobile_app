@@ -44,16 +44,16 @@ class CreateTaskDialog : AppCompatDialogFragment() {
             .setNegativeButton("Cancel") {dialog, _ ->
                 dialog.dismiss()
             }
-            .setPositiveButton("Add") {dialog, _ ->
+            .setPositiveButton("Add") { dialog, _ ->
                 val title = binding.taskName.text.toString()
                 val description = binding.taskDescription.text.toString()
                 val date = binding.taskDate.text.toString()
                 val favorite: Boolean = binding.taskFavorite.isChecked()
+
                 dialog.cancel()
             }
-        val dialog = builder.create()
 
-        //dialog.getButton(AlertDialog.BUTTON_POSITIVE).isEnabled = false
+        val dialog = builder.create()
 
         binding.btnSetDate.setOnClickListener {
             Log.i("lol", "lol")
@@ -84,9 +84,12 @@ class CreateTaskDialog : AppCompatDialogFragment() {
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
             }
             override fun afterTextChanged(s: Editable?) {
-                dialog.getButton(AlertDialog.BUTTON_POSITIVE).isEnabled = !binding.name.isNullOrEmpty()
+                dialog.getButton(AlertDialog.BUTTON_POSITIVE).isEnabled = !binding.taskName.text.isNullOrEmpty()
             }
         })
+        dialog.setOnShowListener {
+            dialog.getButton(AlertDialog.BUTTON_POSITIVE).isEnabled = false
+        }
         return dialog
     }
 
