@@ -5,4 +5,5 @@
     <string name="name_task">Name task</string>
     <string name="description">Description</string>
     <string name="date">dd.mm.yyyy</string>
+    <string name="name_task_list">Name task list</string>
 </resources>
