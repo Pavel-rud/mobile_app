@@ -17,7 +17,7 @@ import androidx.databinding.DataBindingUtil
 import android.app.DatePickerDialog
 import android.text.TextWatcher
 import android.text.Editable
-
+import com.example.mobileapp.masks.DateInputMask
 
 import com.example.mobileapp.databinding.CreateTaskDialogBinding
 import java.text.DateFormat
@@ -52,6 +52,8 @@ class CreateTaskDialog : AppCompatDialogFragment() {
 
                 dialog.cancel()
             }
+        DateInputMask(binding.taskDate){
+        }
 
         val dialog = builder.create()
 

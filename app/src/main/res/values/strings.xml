@@ -4,5 +4,5 @@
     <string name="tab_text_2">My tasks</string>
     <string name="name_task">Name task</string>
     <string name="description">Description</string>
-    <string name="date">Date</string>
+    <string name="date">dd.mm.yyyy</string>
 </resources>
