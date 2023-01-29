@@ -21,7 +21,7 @@ class CreatTaskList: AppCompatDialogFragment() {
         _binding = CreateTaskListDialogBinding.inflate(LayoutInflater.from(context))
         val builder = AlertDialog.Builder(requireActivity())
 
-        builder.setTitle("Add a new task")
+        builder.setTitle("Add a new task list")
             .setView(binding.root)
             .setNegativeButton("Cancel") {dialog, _ ->
                 dialog.dismiss()
