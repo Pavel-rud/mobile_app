@@ -10,11 +10,15 @@ import androidx.viewpager.widget.ViewPager
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.util.Log
+import com.example.mobileapp.database.DB
+import com.example.mobileapp.util.Repository
 import android.widget.ImageButton
 import com.example.mobileapp.ui.main.SectionsPagerAdapter
 import com.example.mobileapp.dialogs.CreateTaskDialog
 import com.example.mobileapp.dialogs.CreatTaskList
 import com.example.mobileapp.dialogs.EditTaskList
+import com.example.mobileapp.dialogs.ErrorDeleteTaskList
 
 //const val APP_PREFERENCES = "APP_PREFERENCES"
 
@@ -35,7 +39,22 @@ class MainActivity : AppCompatActivity() {
         val EditTaskListBtn: ImageButton = findViewById(R.id.Button_edit)
         val DelTaskListBtn: ImageButton = findViewById(R.id.Button_delete)
 
+        //val db = DB.getInstance(this@MainActivity)
+        //val repository = Repository(db)
+
+        viewPager.addOnPageChangeListener(object : ViewPager.SimpleOnPageChangeListener() {
+
+            //override only methods you need, not all of them
+
+            override fun onPageSelected(position: Int) {
+                val ind = viewPager.currentItem
+                Log.i(ind.toString(), ind.toString())
+            }
+        })
+
         fab.setOnClickListener {
+            val ind = viewPager.currentItem
+            Log.i(ind.toString(), ind.toString())
             val myDialogFragment = CreateTaskDialog()
             myDialogFragment.show(supportFragmentManager, "Dialog_create_task")
         }
@@ -51,6 +70,14 @@ class MainActivity : AppCompatActivity() {
         }
 
         DelTaskListBtn.setOnClickListener {
+            if (viewPager.currentItem <= 1){
+                val myDialogFragment = ErrorDeleteTaskList()
+                myDialogFragment.show(supportFragmentManager, "Dialog_error_del_task_list")
+            }
+            else{
+                // todo delete task list
+            }
+
         }
     }
 
